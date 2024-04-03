@@ -35,7 +35,7 @@ def send():
     
 
 def sendMailTo(email):
-    send_mail.send('bibf uhde cgkc mwtc', email)
+    send_mail.send('******', email)
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
