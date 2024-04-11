@@ -1,16 +1,71 @@
-:root {
+#root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+body {
+  display: flex;
+  min-width: 100vh; 
+  height: 100vh;
+  overflow: scroll;
+  background-color: #182038 !important;
+}
+
+.item-box {
+  background-color: rgb(78, 110, 179);
+  min-width: 80vmax;
+  text-align: center;
+  
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* grid-auto-rows: minmax(100px, auto); */
+  border-radius: 4px;
+
+  cursor: pointer;
+}
+
+.pfp {
+  grid-column: 1;
+  /* grid-row: 1/3; */
+  aspect-ratio: 1/1;
+  padding: 10px;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s ease-in 0ms;
+}
+
+.item-box:hover > .pfp {
+  opacity: 100;
+  max-height: 300px;
+}
+
+.box-name {
+  grid-column: 2;
+  align-self: center;
+  text-align: center;
+  padding: 5px;
+}
+
+#down-arrow {
+  grid-column: 3;
+  align-self: right;
 }
 
 #a {
@@ -20,14 +75,6 @@
 }
 a:hover {
   color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {
@@ -43,7 +90,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
@@ -54,4 +101,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */

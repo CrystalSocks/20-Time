@@ -12,12 +12,24 @@ cors = CORS(app, origins='*')
 def users():
     return jsonify(
         {
-            "users": [
-                'reed',
-                'luke',
-                'mercer',
-                'flynn'
-            ]
+            "users": {
+                'Reed': {
+                    'img': '/src/assets/IMG_20171025_174106.JPG',
+                    'email': 'reedjpow@gmail.com'
+                },
+                'Luke': {
+                    'img': '/src/assets/IMG_0019.JPG',
+                    'email': 'reedjpow@gmail.com'
+                },
+                'Mercer': {
+                    'img': '/src/assets/IMG_1290.jpg',
+                    'email': 'reedjpow@gmail.com'
+                },
+                'Flynn': {
+                    'img': '/src/assets/IMG_1018.JPG',
+                    'email': 'reedjpow@gmail.com'
+                }
+            }
         }
     )
 
@@ -35,7 +47,7 @@ def send():
     
 
 def sendMailTo(email):
-    send_mail.send('******', email)
+    send_mail.send('bibf uhde cgkc mwtc', email)
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
