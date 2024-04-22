@@ -6,6 +6,7 @@ import ProfileBox from "../components/ProfileBox";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 var images = [];
+var emails = [];
 
 function Home() {
   // const [count, setCount] = useState(0);
@@ -24,8 +25,13 @@ function Home() {
         images.push(response.data.users[user].img);
       }
     }
-    console.log(response.data.users.Reed.img);
+    for (var user in response.data.users) {
+      if (response.data.users.hasOwnProperty(key)) {
+        emails.push(response.data.users[user].email);
+      }
+    }
     console.log(images);
+    console.log(emails);
     setArray(users);
   };
 
@@ -35,12 +41,15 @@ function Home() {
 
   return (
     <>
-      {array.map((user, index) => (
+      {array.map((user, index, email) => (
         <div key={index}>
           <ProfileBox
             name={user}
             image={images[index]}
-            onClick={() => window.open("/form")}
+            email={emails[index]}
+            onClick={() => {
+              useState;
+            }}
           />
           <br></br>
         </div>

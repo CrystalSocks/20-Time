@@ -13,23 +13,56 @@ def users():
     return jsonify(
         {
             "users": {
-                'Reed': {
-                    'img': '/src/assets/IMG_20171025_174106.JPG',
+                'Reed Powell': {
+                    'img': '/src/assets/reed.JPEG',
                     'email': 'reedjpow@gmail.com'
                 },
-                'Luke': {
-                    'img': '/src/assets/IMG_0019.JPG',
-                    'email': 'reedjpow@gmail.com'
+                'Jacob Wallace': {
+                    'img': '/src/assets/wallace.JPG',
+                    # 'email': 'wallace.jacob@hardingacademymemphis.org'
+                    'email': 'powell.reed@hardinglions.net'
                 },
-                'Mercer': {
-                    'img': '/src/assets/IMG_1290.jpg',
-                    'email': 'reedjpow@gmail.com'
+                'Janelle Phipps': {
+                    'img': '/src/assets/phipps.JPG',
+                    'email': 'phipps.janelle@hardingacademymemphis.org'
                 },
-                'Flynn': {
-                    'img': '/src/assets/IMG_1018.JPG',
-                    'email': 'reedjpow@gmail.com'
-                }
-            }
+                'Rachel Cox': {
+                    'img': '/src/assets/coxr.JPG',
+                    'email': 'cox.rachel@hardingacademymemphis.org'
+                },
+                'Charli Gonder': {
+                    'img': '/src/assets/gonder.JPG',
+                    'email': 'gonder.charli@hardingacademymemphis.org'
+                },
+                'Andrea Campbell': {
+                    'img': '/src/assets/campbell.JPG',
+                    'email': 'campbell.andrea@hardingacademymemphis.org'
+                },
+                'Jane Morgan': {
+                    'img': '/src/assets/morgan.JPG',
+                    'email': 'morgan.jane@hardingacademymemphis.org'
+                },
+                'Lisa Jo Perdue': {
+                    'img': '/src/assets/perdue.JPEG',
+                    'email': 'perdue.lisa@hardingacademymemphis.org'
+                },
+                'Jenny Radmer': {
+                    'img': '/src/assets/radmer.JPG',
+                    'email': 'radmer.jenny@hardingacademymemphis.org'
+                },
+                'Rob Kurzinsky': {
+                    'img': '/src/assets/rob.JPG',
+                    'email': 'kurzinsky.rob@hardingacademymemphis.org'
+                },
+                'Colby Canterbury': {
+                    'img': '/src/assets/canterbury.JPEG',
+                    'email': 'canterbury.colby@hardingacademymemphis.org'
+                },
+                'Jason Knight': {
+                    'img': '/src/assets/knight.JPG',
+                    'email': 'knight.jason@hardingacademymemphis.org'
+                },
+            },
         }
     )
 
@@ -37,7 +70,14 @@ def users():
 def send():
     if request.method == "POST":
         email = request.json['email']
-        sendMailTo(email)
+        u_name = request.json['u_name']
+        u_email = request.json['u_email']
+        t_name = request.json['t_name']
+        class_hr = request.json['class_hr']
+        return_teacher = request.json['return_teacher']
+        reason = request.json['reason']
+
+        sendMailTo(email, u_name, u_email, t_name, reason, return_teacher, class_hr)
         print('mail sent')
     return jsonify (
         {
@@ -46,8 +86,8 @@ def send():
     )
     
 
-def sendMailTo(email):
-    send_mail.send('bibf uhde cgkc mwtc', email)
+def sendMailTo(email, u_name, u_email, t_name, reason, return_teacher, class_hr):
+    send_mail.send('bibf uhde cgkc mwtc', email, u_name, u_email, t_name, reason, return_teacher, class_hr)
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
